@@ -68,3 +68,21 @@ library(skimr)
 library(lubridate)
 ```
 
+### Loading the dat 
+```{r}
+df <- read.csv('E:/Alx-project3/202205-divvy-tripdata/202205-divvy-tripdata.csv')
+```
+
+### Assessing the data
+
+```{r}
+head(df, 5)
+View(df)
+```
+```{r}
+str(df)
+colnames(df) # getting the column names in the dataframe
+glimpse(df)
+skim_without_charts(df)
+```
+
