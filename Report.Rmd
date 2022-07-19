@@ -1,4 +1,13 @@
-# Case Study Projec: How Does a Bike-Share Navigate Speedy Success?
+---
+title: "Case Study Projec: How Does a Bike-Share Navigate Speedy Success?t"
+author: "Ayo"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 ## Table of Contents
 <ul>
@@ -47,4 +56,15 @@ For data-privacy I won't be using riders's persnal identifiables information. Th
 means that i won’t be able to connect pass purchases to credit card numbers to determine if casual riders live in the Cyclistic service area or if they have purchased multiple single passes which will be one of my limitations.
 
 Data is in comma seperated value (csv) format, downloaded from amazonaws website and stored in a directory in my local disk. To verify data integrity, proper data cleaning was done on the data set 
+
+## Processing Data
+
+### Importing the packages
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(skimr)
+library(lubridate)
+```
 
