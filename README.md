@@ -4,7 +4,7 @@ In 2016, Cyclistic launched a successful bike-share offering. Since then, the pr
 Cyclistic’s finance analysts have concluded that annual members are much more profitable than casual riders. Although the pricing flexibility helps Cyclistic attract more customers, Moreno believes that maximizing the number of annual members will be key to future growth. Rather than creating a marketing campaign that targets all-new customers, Moreno believes there is a very good chance to convert casual riders into members. She notes that casual riders are already aware of the Cyclistic program and have chosen Cyclistic for their mobility needs. The stakeholders has set a clear goal: Design marketing strategies aimed at converting casual riders into annual members. In order to do that, however, the marketing analyst team needs to better understand how annual members and casual riders differ, why casual riders would buy a membership, and how digital media could affect their marketing tactics. The stakeholders are interested in analyzing the Cyclistic historical bike trip data to identify trends.
 
  
-## Aim
+## Aim and Objectives
 Design marketing strategies aimed at converting casual riders into annual members
 
 According to the ask phase of data analysis process three questions was generated which leads
@@ -21,3 +21,12 @@ visualizations.
 ## My Personal Business Task
 How do annual members and casual riders cyclistic bike diferently?
 
+## Stakeholders
+● Lily Moreno: The director of marketing and your manager. Moreno is responsible for the development of campaigns
+and initiatives to promote the bike-share program. These may include email, social media, and other channels.
+● Cyclistic marketing analytics team: A team of data analysts who are responsible for collecting, analyzing, and
+reporting data that helps guide Cyclistic marketing strategy. You joined this team six months ago and have been busy
+learning about Cyclistic’s mission and business goals — as well as how you, as a junior data analyst, can help Cyclistic
+achieve them.
+● Cyclistic executive team: The notoriously detail-oriented executive team will decide whether to approve the
+recommended marketing program.
