@@ -49,3 +49,5 @@ table(df_copy$member_casual)
 ## Analysis 
 df_copy$ride_length <- difftime(df_copy$started_at, df_copy$ended_at)
 
+# 
+
