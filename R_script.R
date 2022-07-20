@@ -46,3 +46,6 @@ df_copy <- rename(df_copy, start_day_of_week=start_week)
 summary(df_copy)
 skim_without_charts(df_copy)
 table(df_copy$member_casual)
+## Analysis 
+
+
