@@ -47,5 +47,5 @@ summary(df_copy)
 skim_without_charts(df_copy)
 table(df_copy$member_casual)
 ## Analysis 
-df_copy$ride_length <- difftime(df_copy$start_date, df_copy$end_date)
+df_copy$ride_length <- difftime(df_copy$started_at, df_copy$ended_at)
 
