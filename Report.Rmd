@@ -38,7 +38,7 @@ my team will design a new marketing strategy to convert casual riders into annua
 visualizations.
 
 ### My Personal Business Task
-How do annual members and casual riders cyclistic bike diferently?
+How do annual members and casual riders use cyclistic bike diferently?
 
 ### Stakeholders
 >- Lily Moreno: The director of marketing and your manager. Moreno is responsible for the development of campaigns
@@ -71,18 +71,105 @@ library(lubridate)
 ### Loading the dat 
 ```{r}
 df <- read.csv('E:/Alx-project3/202205-divvy-tripdata/202205-divvy-tripdata.csv')
+df_copy <- df
 ```
 
 ### Assessing the data
 
 ```{r}
 head(df, 5)
-View(df)
 ```
 ```{r}
 str(df)
 colnames(df) # getting the column names in the dataframe
 glimpse(df)
 skim_without_charts(df)
+```
+
+### Cleaning
+```{r}
+df_copy$start_date <- as.Date(df_copy$started_at) 
+df_copy$start_month <- format(as.Date(df_copy$start_date), "%m")
+df_copy$start_day <- format(as.Date(df_copy$start_date), "%d")
+df_copy$start_year <- format(as.Date(df_copy$start_date), "%Y")
+df_copy$start_week <- format(as.Date(df_copy$start_date), "%A")
+df_copy$end_date <- as.Date(df_copy$ended_at)
+```
+
+```{r}
+skim_without_charts(df)
+```
+
+```{r}
+# dropping some unwanted columns
+colnames(df_copy)
+df_copy <- df_copy %>% select(-c(start_lat, start_lng, end_lat, end_lng))
+```
+
+```{r}
+# Creating new features ride_duration
+df_copy$ride_duration <- difftime(df_copy$ended_at, df_copy$started_at)
+str(df_copy)
+skim_without_charts(df_copy)
+```
+Seems we have negative ride duration, so lets remove that
+
+```{r}
+df_clean <- filter(df_copy, df_copy$ride_duration >= 0)
+```
+
+Rename the start day of the week to be more descriptive
+```{r}
+df_copy <- rename(df_copy, start_day_of_week=start_week)
+summary(df_clean)
+skim_without_charts(df_clean)
+table(df_clean$member_casual)
+
+```
+lets drop some irrelevant datas
+```{r}
+df_clean <- filter(df_copy, df_copy$ride_duration >= 0)
+```
+
+
+Convert ride duration to seconds
+```{r}
+df_clean$ride_duration <- as.numeric(df_clean$ride_duration)
+is.numeric(df_clean$ride_duration)
+```
+ 
+ 
+### Analysis
+
+```{r}
+summary(df_clean$ride_duration)
+```
+Here we have the summary statistics of the ride duration regardless of member type
+The total average ride duration is 1266secs
+Minimun ride duration is 0sec
+Maximun ride duration is 2175468secs
+
+
+Lets gets the average duration for the members type 
+```{r}
+aggregate(df_clean$ride_duration ~ df_clean$member_casual, FUN = mean)
+```
+Casual riders seems to have significant high ride duration member riders than the member riders
+
+```{r}
+head(df_clean)
+```
+
+```{r}
+df_clean$start_day_of_week <- ordered(df_clean$start_day_of_week, levels=c('Sunday', 'Monday', 
+                                                                           'Tuesday',
+                                                                           'Wednessday', 'Thursday', 
+                                                                           'Friday',
+                                                                           'Saturday'))
+```
+
+
+```{r}
+aggregate(df_clean$ride_duration ~ df_clean$member_casual + df_clean$start_day_of_week, FUN = mean)
 ```
 
