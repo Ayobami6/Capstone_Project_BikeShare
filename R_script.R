@@ -97,5 +97,6 @@ df_clean %>%
   group_by(member_casual, weekday) %>% 
   summarise(number_of_rides =n(), average_duration = mean(ride_duration)) %>% 
   arrange(member_casual, weekday) %>% 
-  ggplot(aes(x=weekday, y=average_duration, fill=member_casual)) + geom_col(position = 'dodge')
+  ggplot(aes(x=weekday, y=average_duration, fill=member_casual)) + geom_col(position = 'dodge') +
+  geom_text()
 
